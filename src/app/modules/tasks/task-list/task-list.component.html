@@ -1,0 +1,13 @@
+<div class="task-list-container">
+    <h2>Lista de tareas</h2>
+    <ul class="task-list">
+        @for (task of tasks; track task.id) {
+        <li class="task-item" [class.completed]="task.completed">
+            {{ task.description }} -
+            <span class="status">
+                {{ task.completed ? 'Completada' : 'Pendiente' }}
+            </span>
+        </li>
+        }
+    </ul>
+</div>

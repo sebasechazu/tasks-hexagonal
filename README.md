@@ -1,59 +1,34 @@
-# TasksHexagonal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
 
-## Development server
+### Mappers
 
-To start a local development server, run:
+Estos mapeadores nos ayudarán a convertir y manejar datos entre la capa de dominio y los adaptadores o servicios externos de una manera más sencilla.
 
-```bash
-ng serve
+```
+├── src
+│   ├── app
+│   │   ├── core
+│   │   │    ├── mappers
+│   │   │    │    ├── task.mapper.ts
+
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Módulo y componente
 
-## Code scaffolding
+Crearemos un nuevo componente que use el repositorio de tareas para obtener las tareas y luego mostrarlas en el HTML del componente.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+```
+├── src
+│   ├── app
+│   │   ├── modules
+│   │   │    ├── tasks
+│   │   │    │    ├── tasks.module.ts
+│   │   │    │    ├── tasks-routing.module.ts
+│   │   │    │    ├── components
+│   │   │    │    │    ├── list-tasks
+│   │   │    │    │    │    ├── list-tasks.component.html
+│   │   │    │    │    │    ├── list-tasks.component.ts
 
-```bash
-ng generate component component-name
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+En el archivo *list-tasks.component.ts,* inyectaremos el repositorio *TaskRepository* y así obtendremos las tareas en el método *loadTasks* cuando se ejecute el ciclo de vida del componente a través del *ngOnInit.*
